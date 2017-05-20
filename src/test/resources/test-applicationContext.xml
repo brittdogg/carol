@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                           http://www.springframework.org/schema/tx 
+                           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd"> 
+
+    <!-- Database connectivity beans -->
+    <tx:annotation-driven/>
+    
+    <bean id="dataSource"
+              class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/carolTest"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <property name="initialSize" value="10"/>
+        <property name="maxTotal" value="400"/>
+    </bean>
+    
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+    <bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+    <!-- DAO Beans -->
+    
+    <bean id="postDao" class="com.sg.carolsblog.dao.BlogPostDaoImpl">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+    
+    <bean id="pageDao" class="com.sg.carolsblog.dao.StaticPageDaoImpl">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+    
+    <bean id="commentDao" class="com.sg.carolsblog.dao.CommentDaoImpl">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+    <bean id="categoryDao" class="com.sg.carolsblog.dao.CategoryDaoImpl">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+    <bean id="tagDao" class="com.sg.carolsblog.dao.TagDaoImpl">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+    
+    <bean id="blogUserDao" class="com.sg.carolsblog.dao.BlogUserDaoImpl">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+    
+    <bean id="postTagDao" class="com.sg.carolsblog.dao.PostTagDaoImpl">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+    
+    <bean id="imageDao" class="com.sg.carolsblog.dao.ImageDaoImpl">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+    
+    <!-- Service Beans -->
+    
+    <bean id="blogService" class="com.sg.carolsblog.service.BlogServiceImpl">
+        <constructor-arg ref="postDao"/>
+        <constructor-arg ref="postTagDao"/>
+        <constructor-arg ref="tagDao"/>
+        <constructor-arg ref="commentDao"/>
+    </bean>
+    
+    <bean id="pageService" class="com.sg.carolsblog.service.StaticPageServiceImpl">
+        <constructor-arg ref="pageDao"/>
+    </bean>
+    
+    <bean id="blogUserService" class="com.sg.carolsblog.service.BlogUserServiceImpl">
+        <constructor-arg ref="blogUserDao"/>
+    </bean>  
+     
+    <bean id="categoryService" class="com.sg.carolsblog.service.CategoryServiceImpl">
+        <constructor-arg ref="categoryDao"/>
+    </bean>
+    
+    <bean id="tagService" class="com.sg.carolsblog.service.TagServiceImpl">
+        <constructor-arg ref="tagDao"/>
+    </bean>
+    
+    <bean id="commentService" class="com.sg.carolsblog.service.CommentServiceImpl">
+        <constructor-arg ref="commentDao"/>
+    </bean>
+    
+    <bean id="imageService" class="com.sg.carolsblog.service.ImageServiceImpl">
+        <constructor-arg ref="imageDao"/>
+    </bean>
+</beans>
