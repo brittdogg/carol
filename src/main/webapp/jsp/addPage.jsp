@@ -32,7 +32,7 @@
                                 <label class="control-label " for="content">
                                     Content
                                 </label>
-                                <sf:textarea class="form-control" cols="40" id="content" name="content" placeholder="Enter Page Content" rows="10" path="content"></sf:textarea>
+                                <sf:textarea class="form-control" cols="40" id="content" name="content" placeholder="Enter Page Content" rows="10" path="content"/>
                             </div>
                             <div class="form-group ">
                                 <label class="control-label " for="slug">

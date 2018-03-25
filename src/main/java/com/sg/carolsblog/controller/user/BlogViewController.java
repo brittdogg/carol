@@ -3,18 +3,19 @@ package com.sg.carolsblog.controller.user;
 import com.sg.carolsblog.dto.BlogPost;
 import com.sg.carolsblog.dto.BlogUser;
 import com.sg.carolsblog.dto.Comment;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import com.sg.carolsblog.service.BlogService;
 import com.sg.carolsblog.service.BlogUserService;
 import com.sg.carolsblog.service.CategoryService;
 import com.sg.carolsblog.service.CommentService;
 import com.sg.carolsblog.service.StaticPageService;
-import java.util.List;
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping({"/blog"})
