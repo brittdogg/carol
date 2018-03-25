@@ -24,12 +24,12 @@
                         <h3>Posts by Tag: ${tagName}</h3>
                         <c:forEach items="${posts}" var="post">
                             <div class="row">
-                                <h3><a href="/CarolsBlog/blog/displayPost/${post.blogPostId}">${post.title}</a></h3>
+                                <h3><a href="${pageContext.request.contextPath}/blog/displayPost/${post.blogPostId}">${post.title}</a></h3>
                                 <h4>${post.publishDate}</h4>
-                                <h4><a href="/CarolsBlog/blog/user/${post.createdBy.blogUserId}">
+                                <h4><a href="${pageContext.request.contextPath}/blog/user/${post.createdBy.blogUserId}">
                                     ${post.createdBy.displayName}
                                     </a></h4>
-                                <h4><a href="/CarolsBlog/blog/category/${post.category.categoryId}">
+                                <h4><a href="${pageContext.request.contextPath}/blog/category/${post.category.categoryId}">
                                         ${post.category.categoryName}
                                     </a></h4>
                                 <div class="panel panel-default">

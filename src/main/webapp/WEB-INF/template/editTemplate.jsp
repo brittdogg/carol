@@ -18,13 +18,13 @@
             <jsp:include page="/WEB-INF/template/navBar.jsp"/>
             <div class="container">
                 <!-- this link goes to the home page for this resource -->
-                <a href="/CarolsBlog/"/><< Go Back</a>
+                <a href="${pageContext.request.contextPath}/"/><< Go Back</a>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <sf:form role="form"
                                  class="form-horizontal"
                                  modelAttribute="yourModelAttribute"
-                                 action="/CarolsBlog/your/url"
+                                 action="${pageContext.request.contextPath}/your/url"
                                  method="POST">
                         <!-- Your spring form here -->
                         <div class="form-group">

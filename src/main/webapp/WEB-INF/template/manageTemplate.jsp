@@ -32,13 +32,13 @@
                                 <c:forEach var="post" items="${posts}">
                                 <tr>
                                     <td>
-                                        <a href="/CarolsBlog/blog/displayPost/<c:out value="${post.blogPostId}"/>"><c:out value="${post.title}"/></a>
+                                        <a href="${pageContext.request.contextPath}/blog/displayPost/<c:out value="${post.blogPostId}"/>"><c:out value="${post.title}"/></a>
                                     </td>
                                     <td>
-                                        <a href="/CarolsBlog/blog/editPost/<c:out value="${post.blogPostId}"/>">Edit</a>
+                                        <a href="${pageContext.request.contextPath}/blog/editPost/<c:out value="${post.blogPostId}"/>">Edit</a>
                                     </td>
                                     <td>
-                                        <a href="/CarolsBlog/blog/deletePost/<c:out value="${post.blogPostId}"/>">Delete</a>
+                                        <a href="${pageContext.request.contextPath}/blog/deletePost/<c:out value="${post.blogPostId}"/>">Delete</a>
                                     </td>
                                 </tr>
                                 </c:forEach>

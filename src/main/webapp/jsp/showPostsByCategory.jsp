@@ -24,9 +24,9 @@
                         <h3>Posts for Category : ${category.categoryName}</h3>
                         <c:forEach items="${posts}" var="post">
                             <div class="row">
-                                <h3><a href="/CarolsBlog/blog/showPost/${post.blogPostId}">${post.title}</a></h3>
+                                <h3><a href="${pageContext.request.contextPath}/blog/showPost/${post.blogPostId}">${post.title}</a></h3>
                                 <h4>${post.publishDate}</h4>
-                                <h4><a href="/CarolsBlog/blog/user/${post.createdBy.blogUserId}">
+                                <h4><a href="${pageContext.request.contextPath}/blog/user/${post.createdBy.blogUserId}">
                                         ${post.createdBy.displayName}
                                     </a></h4>
                                 <h4>${post.category.categoryName}</h4>

@@ -56,7 +56,7 @@
                 <div class="col-md-6">
                     <h2>Add Category</h2>
                     <form class="form-horizontal" role="form" method="POST"
-                          action="/CarolsBlog/admin/category/addCategory">
+                          action="${pageContext.request.contextPath}/admin/category/addCategory">
                         <div class="form-group">
                             <label for="add-category" class="col-md-4 control-label">
                                 Category:

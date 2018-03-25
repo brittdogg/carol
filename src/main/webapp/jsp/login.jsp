@@ -18,7 +18,7 @@
             <jsp:include page="/WEB-INF/template/navBar.jsp"/>
             <div class="container">
                 <!-- this link goes to the home page for this resource -->
-                <a href="/CarolsBlog/"/><< Go Back</a>
+                <a href="/carol/"><< Go Back</a>
                 <div class="row">
                     <c:if test="${param.login_error == 1}">
                             <p class="text-center">Wrong username or password. Please try again.</p>
@@ -27,17 +27,17 @@
                         <form class="form-horizontal" 
                               role="form" 
                               method="post" 
-                              action="j_spring_security_check">
+                              action="<c:url value="/j_spring_security_check"/>">
                             <div class="form-group">
-                                <label for="j_username" class="col-md-4 control-label">Username:</label>
+                                <label for="username" class="col-md-4 control-label">Username:</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" name="j_username" placeholder="Username"/>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="j_password" class="col-md-4 control-label">Password:</label>
+                                <label for="password" class="col-md-4 control-label">Password:</label>
                                 <div class="col-md-8">
-                                    <input type="password" class="form-control" name="j_password" placeholder="Password"/>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"/>
                                 </div>
                             </div>
                             <div class="form-group">

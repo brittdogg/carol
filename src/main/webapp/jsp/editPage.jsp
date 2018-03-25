@@ -17,7 +17,7 @@
             <hr/>
             <jsp:include page="/WEB-INF/template/navBar.jsp"/>
             <div class="container">
-                <a href="/CarolsBlog/blog"/><< Go Back</a>
+                <a href="${pageContext.request.contextPath}/blog"/><< Go Back</a>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <!-- HTML Form (wrapped in a .bootstrap-iso div) -->

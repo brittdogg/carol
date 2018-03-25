@@ -24,7 +24,7 @@
                         <h2><c:out value="${slug}"/></h2>
                         <h2><c:out value="${page.title}"/></h2>
                         <p><c:out value="${page.content}"/></p>
-                        <p>Author: <a href="/CarolsBlog/blog/user/${page.createdBy.blogUserId}">
+                        <p>Author: <a href="${pageContext.request.contextPath}/blog/user/${page.createdBy.blogUserId}">
                                 <c:out value="${page.createdBy.displayName}"/>
                             </a></p>
                         <p>Updated: <c:out value="${page.modifiedDate}"/></p>

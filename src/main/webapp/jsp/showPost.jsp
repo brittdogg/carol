@@ -24,10 +24,10 @@
                     <div class="col-md-8">
                         <p>${post.publishDate}</p>
                         <h1>${post.title}</h1>
-                        <p>Category: <a href="/CarolsBlog/blog/category/${post.category.categoryId}">
+                        <p>Category: <a href="${pageContext.request.contextPath}/blog/category/${post.category.categoryId}">
                                 ${post.category.categoryName}
                             </a></p>
-                        <p>Author: <a href="/CarolsBlog/blog/user/${post.createdBy.blogUserId}">
+                        <p>Author: <a href="${pageContext.request.contextPath}/blog/user/${post.createdBy.blogUserId}">
                                 ${post.createdBy.displayName}
                             </a></p>
                         <div>
@@ -63,7 +63,7 @@
                                                 <c:out value="${currentComment.createdDate}"/>
                                             </td>
                                             <td>
-                                                <a href="/CarolsBlog/blog/deleteComment?commentId=${currentComment.commentId}&postId=${currentComment.blogPostId}">
+                                                <a href="${pageContext.request.contextPath}/blog/deleteComment?commentId=${currentComment.commentId}&postId=${currentComment.blogPostId}">
                                                     Delete
                                                 </a>
                                             </td>
@@ -75,7 +75,7 @@
                             <div>
                                 <h4>Add Comment</h4>
                                 <form class="form-horizontal" role="form" method="POST"
-                                      action="/CarolsBlog/blog/addComment">
+                                      action="${pageContext.request.contextPath}/blog/addComment">
                                     <div class="form-group">
                                         <label for="add-comment" class="control-label">
                                             Comment:
